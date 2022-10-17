@@ -17,8 +17,8 @@ function createDreamTeam(members) {
   if (!Array.isArray(members)) {
     return false;
   }
-  const newMembers = members
-    .forEach((me) => {
+  members = members
+    .map((el) => {
       if (typeof el === "string") {
         return el.trim()[0].toUpperCase();
       }
@@ -28,7 +28,7 @@ function createDreamTeam(members) {
     .sort()
     .join("");
 
-  return newMembers ? newMembers : false;
+  return members ? members : false;
 }
 
 module.exports = {
