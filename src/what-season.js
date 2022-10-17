@@ -22,29 +22,19 @@ function getSeason(date) {
   if (date instanceof Date) {
     {
       const month = date.getMonth.call(date);
-      season = "";
-      switch (month) {
-        case "12":
-        case "1":
-        case "2":
-          season = "winter";
-          break;
-        case "3":
-        case "4":
-        case "5":
-          season = "spring";
-          break;
-        case "6":
-        case "7":
-        case "8":
-          season = "summer";
-          break;
-        case "9":
-        case "10":
-        case "11":
-          season = "autumn";
-          break;
+      if (3 <= month && month <= 5) {
+        return "spring";
       }
+
+      if (6 <= month && month <= 8) {
+        return "summer";
+      }
+
+      if (9 <= month && month <= 11) {
+        return "autumn";
+      }
+
+      return "winter";
     }
   }
 }
